@@ -1,0 +1,126 @@
+<!-- bahan bahan warna
+Sabuk = '#CD5C08'
+kulit = 'E48F45' -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="world" width="1000" height="1500" style="border: 1px solid black;"></canvas>
+    <script>
+        // Inisialisasi canvas
+        let canvas = document.getElementById("world");
+        let context = canvas.getContext("2d");
+
+        // function bulat
+        function bulat(x, y, r, color) {
+            context.beginPath();
+            context.arc(x, y, r, 0, 2 * Math.PI);
+            context.fillStyle = color;
+            context.fill();
+        }
+
+        // function setengah bulat
+        function setBulat(x, y, r, color) {
+            context.beginPath();
+            context.arc(x, y, r, 0, Math.PI);
+            context.fillStyle = color;
+            context.fill();
+        }
+
+        // function setengah bulat
+        function oval(x, y, radiusX, radiusY, color) {
+            context.beginPath();
+            context.ellipse(x, y, radiusX, radiusY, 0, 0, 2 * Math.PI);
+            context.fillStyle = color;
+            context.fill();
+        }
+
+        // function persegi
+        function persegi(x, y, width, height, [rd], color) {
+            context.beginPath();
+            context.roundRect(x, y, width, height, [rd]);
+            context.fillStyle = color;
+            context.fill();
+        }
+
+        // function trapesium
+        function trapesium(x, y, upperWidth, lowerWidth, color) {
+            context.beginPath();
+            context.moveTo(x - upperWidth / 2, y);
+            context.lineTo(x + upperWidth / 2, y);
+            context.lineTo(x + lowerWidth / 2, y + 30);
+            context.lineTo(x - lowerWidth / 2, y + 30);
+            context.closePath();
+            context.fillStyle = color;
+            context.fill();
+
+        }
+
+        // Membuat peci
+        trapesium(canvas.width / 2, canvas.height / 2 - 120, 30, 50, "red");
+
+        // Membuat leher
+        persegi(canvas.width / 2 - 40, canvas.height / 2 + 50, 80, 100, [20], "#E48F45");
+
+        // Membuat kepala
+        oval(canvas.width / 2, canvas.height / 2, 80, 100, "#E48F45");
+
+        // Membuat rambut
+        bulat(canvas.width / 2 - 30, canvas.height / 2 - 80, 18, "black");
+        bulat(canvas.width / 2 + 30, canvas.height / 2 - 80, 18, "black");
+        bulat(canvas.width / 2 - 10, canvas.height / 2 - 90, 10, "black");
+        bulat(canvas.width / 2, canvas.height / 2 - 90, 10, "black");
+        bulat(canvas.width / 2 + 10, canvas.height / 2 - 90, 10, "black");
+
+        // Membuat Mata
+        oval(canvas.width / 2 - 30, canvas.height / 2 - 30, 25, 20, "white");
+        oval(canvas.width / 2 + 30, canvas.height / 2 - 30, 25, 20, "white");
+
+        // Membuat Mata hitam
+        bulat(canvas.width / 2 - 30, canvas.height / 2 - 30, 18, "black");
+        bulat(canvas.width / 2 + 30, canvas.height / 2 - 30, 18, "black");
+
+        // Membuat Mata coklat
+        bulat(canvas.width / 2 - 30, canvas.height / 2 - 30, 10, "brown");
+        bulat(canvas.width / 2 + 30, canvas.height / 2 - 30, 10, "brown");
+
+        // Membuat mulut 
+        setBulat(canvas.width / 2, canvas.height / 2 + 20, 40, "red");
+
+        // Membuat badan
+        persegi(canvas.width / 2 - 100, canvas.height / 2 + 130, 200, 250, [20], "#E48F45");
+
+        // Membuat tangan
+        persegi(canvas.width / 2 - 250, canvas.height / 2 + 140, 170, 60, [50], "#E48F45");
+        persegi(canvas.width / 2 + 80, canvas.height / 2 + 140, 170, 60, [50], "#E48F45");
+
+
+        // Membuat lutut
+        persegi(canvas.width / 2 - 63, canvas.height / 2 + (2 * 280), 45, 80, [20], "#E48F45");
+        persegi(canvas.width / 2 + 18, canvas.height / 2 + (2 * 280), 45, 80, [20], "#E48F45");
+
+        // Membuat kaki
+        oval(canvas.width / 2 - 55, canvas.height / 2 + (2 * 310), 30, 20, "#E48F45");
+        oval(canvas.width / 2 + 55, canvas.height / 2 + (2 * 310), 30, 20, "#E48F45");
+
+        // Membuat celana
+        persegi(canvas.width / 2 - 70, canvas.height / 2 + (2 * 195), 60, 200, [20], "gray");
+        persegi(canvas.width / 2 + 10, canvas.height / 2 + (2 * 195), 60, 200, [20], "gray");
+
+        // Membuat sabuk
+        persegi(canvas.width / 2 - 85, canvas.height / 2 + (2 * 180), 170, 50, [20], "#CD5C08");
+
+        // Membuat baju
+        persegi(canvas.width / 2 - 100, canvas.height / 2 + 130, 70, 250, [20], "purple");
+        persegi(canvas.width / 2 + 30, canvas.height / 2 + 130, 70, 250, [20], "purple");
+    </script>
+</body>
+
+</html>
